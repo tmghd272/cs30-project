@@ -14,4 +14,5 @@ function draw() {
   background(100,100,100);
 
   circle(mouseX, mouseY, 50);
+  console.log(mouseX, mouseY);
 }
