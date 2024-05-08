@@ -7,7 +7,7 @@ What am i going to build?
 - 2d or 3d based game
 - 
 
-## Nice To Have List
+## Nice To Have List?
 - online or local multiplayer based game
 - graphical details
 - controllable for keyboard/mouse or gamepad using p5.joystick
