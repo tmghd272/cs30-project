@@ -6,13 +6,32 @@
 // - describe what you did to take this project "above and beyond"
 
 
+// function setup() {
+//   createCanvas(windowWidth, windowHeight);
+// }
+
+// function draw() {
+//   background(100,100,100);
+
+//   circle(mouseX, mouseY, 50);
+//   console.log(mouseX, mouseY);
+// }
+
+let player, floor;
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+	new Canvas(windowWidth, windowHeight);
+	world.gravity.y = 10;
+	player = new Sprite(50, 0);
+	floor = new Sprite(250, 500, 'Infinity', 40, 'static');
 }
 
 function draw() {
-  background(100,100,100);
+	clear();
+	if (mouse.presses()) {
+		player.vel.y = -4;
+		player.vel.x = 3;
+	}
 
-  circle(mouseX, mouseY, 50);
-  console.log(mouseX, mouseY);
+	camera.x = player.x;
 }
