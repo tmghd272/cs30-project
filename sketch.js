@@ -21,10 +21,11 @@ let player, floor;
 let bricks, tilesGroup;
 
 function setup() {
+
 	new Canvas(windowWidth, windowHeight);
 	world.gravity.y = 10;
-	player = new Sprite(50, 0);
-	floor = new Sprite(250, 500, 1000, 40, 'static');
+	player = new Sprite(0, 0);
+	floor = new Sprite(250, 500, 2000, 40, 'static');
 
 	bricks = new Group();
 	bricks.w = 20;
@@ -44,32 +45,39 @@ function setup() {
 			'==......======...==========.......................',
 			'==......=====....==========........................'
 		],
-		100,
+		10,
 		40,
 		bricks.w + 4,
-		bricks.h + 4
+		bricks.h + 4,
 	);
 }
 
 function draw() {
 	clear();
-	if (key === 'a') {
+	if (keyIsDown(65) === true) {
 		player.vel.y = -3;
 		player.vel.x = -3;
-	} else if (key === 'd') {
-		player.vel.y = -7;
-		player.vel.x = 3;
-	}
+	  }
 	
-
-
-	camera.x = player.x;
+	  if (keyIsDown(68) === true) {
+		player.vel.y = -3;
+		player.vel.x = 3;
+	  }
+	
+	  if (keyIsDown(83) === true) {
+	  player.vel.y = 0;
+	  player.vel.x = 25;
+    }
+	camera.x = mouseX
+	camera.y = mouseY
+	// camera.x = player.x;
+	// camera.y = player.y;
 
 	clear();
 
 	for (let brick of bricks) {
 		if (brick.mouse.hovers()) {
-			brick.color = '#AA4A44';
+			// brick.color = 'blue';
 		}
 	}
 }
