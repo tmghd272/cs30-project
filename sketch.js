@@ -23,6 +23,7 @@ let bricks, tilesGroup;
 function setup() {
 
 	new Canvas(windowWidth, windowHeight);
+	p5play.renderStats = true;
 	world.gravity.y = 10;
 	player = new Sprite(0, 0);
 	floor = new Sprite(250, 500, 2000, 40, 'static');
@@ -67,6 +68,11 @@ function draw() {
 	  if (keyIsDown(83) === true) {
 	  player.vel.y = 0;
 	  player.vel.x = 25;
+	  }
+	
+	  if (keyIsDown(87) === true) {
+	  player.vel.y = 0;
+	  player.vel.x = -25;
     }
 	camera.x = mouseX
 	camera.y = mouseY
@@ -77,7 +83,7 @@ function draw() {
 
 	for (let brick of bricks) {
 		if (brick.mouse.hovers()) {
-			// brick.color = 'blue';
+			brick.color = '#AA4A44';
 		}
 	}
 }
