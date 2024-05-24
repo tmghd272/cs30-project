@@ -83,7 +83,7 @@ function draw() {
 
 	for (let brick of bricks) {
 		if (brick.mouse.hovers()) {
-			brick.color = '#AA4A44';
+			brick.color = random(255);
 		}
 	}
 }
