@@ -17,7 +17,8 @@
 //   console.log(mouseX, mouseY);
 // }
 
-let player, floor;
+
+let player, floor, smiley;
 let bricks, tilesGroup;
 
 function setup() {
@@ -25,12 +26,30 @@ function setup() {
 	new Canvas(windowWidth, windowHeight);
 	p5play.renderStats = true;
 	world.gravity.y = 10;
-	player = new Sprite(0, 0);
+	player = new Sprite();
+	player.x = 10
+	player.diameter = 50;
+	player.image = '😧';
+
 	floor = new Sprite(250, 500, 2000, 40, 'static');
+
+
+	let smileText = `
+..yyyyyy
+.yybyybyy
+yyyyyyyyyy
+yybyyyybyy
+.yybbbbyy
+..yyyyyy`;
+
+	smiley = new Sprite();
+	smiley.img = spriteArt(smileText, 25);
+	smiley.image = '👺';
 
 	bricks = new Group();
 	bricks.w = 20;
 	bricks.h = 10;
+	bricks.image = '👺';
 	bricks.tile = '=';
 
 	tilesGroup = new Tiles(
@@ -39,7 +58,7 @@ function setup() {
 			'======..======...===..............................',
 			'==..==..==.......===..............................',
 			'==..==..==.......===..............................',
-			'======..=====....===....========...................',
+			'======..=====....===........====...................',
 			'=====...======...===..............................',
 			'==..........==...===..............................',
 			'==..........==...===..............................',
