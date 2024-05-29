@@ -43,7 +43,7 @@ yybyyyybyy
 
 	smiley = new Sprite();
 	smiley.img = spriteArt(smileText, 25);
-	smiley.image = '👺';
+	smiley.image = '🍄';
 
 	bricks = new Group();
 	bricks.w = 20;
@@ -104,6 +104,11 @@ function draw() {
 	// camera.y = player.y;
 
 	clear();
+
+	if (player.mouse.hovers()) {
+		player.image = '😲';
+	}
+
 
 	for (let brick of bricks) {
 		if (brick.mouse.hovers()) {
