@@ -92,14 +92,25 @@ function draw() {
 	  player.vel.y = 0;
 	  player.vel.x = -25;
     }
-	if (mouseIsPressed === true) {
+	if (mouseIsPressed === true) { // Mouse camera movement
 		camera.x = mouseX
 	    camera.y = mouseY
 	}   else {
 		camera.x
 	    camera.y
 	}
-	
+	if (keyIsDown(38) === true) {
+		camera.y--
+	  }
+	if (keyIsDown(40) === true) {
+		camera.y++
+	  }
+	  if (keyIsDown(37) === true) {
+		camera.x--
+	  }
+	  if (keyIsDown(39) === true) {
+		camera.x++
+	  }
 	// camera.x = player.x;
 	// camera.y = player.y;
 
