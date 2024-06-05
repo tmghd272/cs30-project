@@ -16,13 +16,17 @@
 //   circle(mouseX, mouseY, 50);
 //   console.log(mouseX, mouseY);
 // }
-
+let bg;
 let player, floor, smiley;
 let bricks, tilesGroup;
 
 function setup() {
 
-	new Canvas(windowWidth, windowHeight);
+	// new Canvas(windowWidth, windowHeight, "pixelated x2");
+	new Canvas(windowWidth, windowHeight, 'pixelated');
+
+	bg = loadImage('assets/bg.png');
+
 	p5play.renderStats = true;
 	world.gravity.y = 10;
 	player = new Sprite();
@@ -30,7 +34,7 @@ function setup() {
 	player.diameter = 50;
 	player.image = '😧';
 
-	floor = new Sprite(250, 500, 2000, 40, 'static');
+	floor = new Sprite(100, 725, 2000, 40, 'static');
 
 
 	let smileText = `
@@ -72,6 +76,23 @@ yybyyyybyy
 }
 
 function draw() {
+
+	clear();
+
+	if (player.mouse.hovers()) {
+		player.image = '😲';
+	}
+
+
+	for (let brick of bricks) {
+		if (brick.mouse.hovers()) {
+			brick.image = '😈';
+		}
+
+	}
+}
+
+function keyFunction() {
 	clear();
 	if (keyIsDown(65) === true) {
 		player.vel.y = -3;
@@ -94,7 +115,7 @@ function draw() {
     }
 	if (mouseIsPressed === true) { // Mouse camera movement
 		camera.x = mouseX
-	    camera.y = mouseY
+	    // camera.y = mouseY
 	}   else {
 		camera.x
 	    camera.y
@@ -113,19 +134,6 @@ function draw() {
 	  }
 	// camera.x = player.x;
 	// camera.y = player.y;
-
-	clear();
-
-	if (player.mouse.hovers()) {
-		player.image = '😲';
-	}
-
-
-	for (let brick of bricks) {
-		if (brick.mouse.hovers()) {
-			brick.image = '😈';
-		}
-	}
 }
 
 
