@@ -3,7 +3,6 @@
 
 // Bowling Game
 // Created with p5play
-
 let state = 0;
 let bg;
 let player, floor, smiley;
@@ -62,22 +61,20 @@ function setup() {
 	scoreText.scale = 1; // Set text scale
 	scoreText.x = 650;
 	scoreText.scale.x = 10;
+
 }
 
 function draw() {
-    if(state === 0 ) {
+    if(state === 0) {
 		background(0)
-		filter(BLUR, 3);
 		scoreText.applyForceScaled(0, -10);
 		
 		if (kb.pressing('space') || mouse.pressing()) {
 			state =1;
 		}
-
-
 	}
 	else if(state === 1) {
-		background(bg)
+		image();
 
 		clear();
 		scoreText.applyForceScaled(0, -10);
@@ -90,10 +87,10 @@ function draw() {
 
 		player.image = '😧';
 		
-
-	
 		if (player.mouse.hovers()) {
 			player.image = '😲';
+		} else {
+			player.image = '😧';
 		}
 	
 		for (let brick of bricks) {
