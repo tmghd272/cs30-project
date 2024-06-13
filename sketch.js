@@ -88,8 +88,6 @@ function draw() {
 		
 		if (player.mouse.hovers()) {
 			player.image = '😲';
-		} else {
-			player.image = '😧';
 		}
 	
 		for (let brick of bricks) {
