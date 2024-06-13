@@ -57,7 +57,7 @@ function setup() {
 		bricks.h + 4,
 	);
     
-	scoreText = createSprite(10, 30); // Create a sprite object for the text
+	scoreText = new Sprite(10, 30, 'static'); // Create a sprite object for the text
 	scoreText.scale = 1; // Set text scale
 	scoreText.x = 650;
 	scoreText.scale.x = 10;
@@ -74,8 +74,9 @@ function draw() {
 		}
 	}
 	else if(state === 1) {
+
+
 		clear();
-		scoreText.applyForceScaled(0, -10);
 		scoreText.fill = 255;
 		scoreText.textFont = "Comic Sans MS";
 		scoreText.textSize = 32;
