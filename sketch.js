@@ -74,8 +74,6 @@ function draw() {
 		}
 	}
 	else if(state === 1) {
-
-
 		clear();
 		scoreText.fill = 255;
 		scoreText.textFont = "Comic Sans MS";
@@ -85,7 +83,7 @@ function draw() {
 		clear();
 
 		player.image = '😧';
-		
+
 		if (player.mouse.hovers()) {
 			player.image = '😲';
 		}
