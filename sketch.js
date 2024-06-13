@@ -74,8 +74,6 @@ function draw() {
 		}
 	}
 	else if(state === 1) {
-		image();
-
 		clear();
 		scoreText.applyForceScaled(0, -10);
 		scoreText.fill = 255;
